@@ -12,4 +12,4 @@ jobs:
           ref: v4.2.2
       - run: ls -al
       - run: head -n 10 CHANGELOG.md
-      - run: .github/workflow
+      - run: ls -al .github/workflow
