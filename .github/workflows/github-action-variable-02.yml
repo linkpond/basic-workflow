@@ -1,17 +1,23 @@
-name: Run CI
-run-name: Run CI v3 (context)
+name: Context testing
+run-name: Run env test
 on: push
 
-jobs:
-  normal_ci:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run normal CI
-        run: echo "Running normal CI"
+env:
+  mascot: Mona
+  super_duper_var: totally_awesome
 
-  pull_request_ci:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
+jobs:
+  windows_job:
+    runs-on: windows-latest
     steps:
-      - name: Run PR CI
-        run: echo "Running PR only CI"
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Mona
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Octocat
+        env:
+          mascot: Octocat
+  linux_job:
+    runs-on: ubuntu-latest
+    env:
+      mascot: Tux
+    steps:
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
+
