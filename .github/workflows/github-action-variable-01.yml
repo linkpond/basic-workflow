@@ -4,12 +4,18 @@ on: push
 env:
   DAY_OF_WEEK: Friday
 jobs:
-  greeting_job_v1:
+  greeting_job_v2:
     runs-on: ubuntu-latest
     env:
       Greeting: Welcome to
     steps:
       - name: "Say Welcome to GithubActions it's Friday"
+        if: ${{ env.DAY_OF_WEEK == 'Friday' }}
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
           First_Name: GithubActions
+  check_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checking Envs"
+        run: echo "Greeting $First_Name. Today is $DAY_OF_WEEK!"
