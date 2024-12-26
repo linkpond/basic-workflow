@@ -2,10 +2,11 @@ name: Test GitHub Action-01
 run-name: Run GitHub Actions-02
 on: push
 jobs:
-  Test-GitHub-Actions:
+  Test-GitHub-Actions-01:
     runs-on: ubuntu-latest
     steps:
       - name: echo-01
         continue-on-error: true
         run: echo "test echo-01" |
-             echo "test echo-01"
+             echo "test echo-02" \
+             echo "test echo-03
