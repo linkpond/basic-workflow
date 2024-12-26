@@ -1,5 +1,5 @@
 name: Run CI
-run-name: Run CI (context)
+run-name: Run CI v2 (context)
 on: push
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
 
   pull_request_ci:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull' }}
     steps:
       - name: Run PR CI
         run: echo "Running PR only CI"
