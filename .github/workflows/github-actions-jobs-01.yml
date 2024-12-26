@@ -1,17 +1,14 @@
-name: Jobs Workflow
+name: Steps Workflow
 on: push
 jobs:
-  echo:
+  calculate-features:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Hello!'
-  echo_if:
-    runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
-    steps:
-      - run: echo 'Hello, Main!'
-  skip_ci:
-    runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'skip ci')
-    steps:
-      - run: echo 'Hello, Skip CI!'
+      - id: generate-num1
+        run: echo "num=$(($RANDOM % 10 + 100))" >> "$GITHUB_OUTPUT"
+      - id: generate-num2
+        run: echo "num=$(($RANDOM % 10 + 100))" >> "$GITHUB_OUTPUT"
+      - run: echo $((${{ steps.generate-num1.outputs.num }} + ${{ steps.generate-num2.outputs.num }}))
+      - run: echo $((${{ steps.generate-num1.outputs.num }} - ${{ steps.generate-num2.outputs.num }}))
+      - run: echo $((${{ steps.generate-num1.outputs.num }} * ${{ steps.generate-num2.outputs.num }}))
+      - run: echo $((${{ steps.generate-num1.outputs.num }} / ${{ steps.generate-num2.outputs.num }}))
