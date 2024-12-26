@@ -6,7 +6,7 @@ on:
 
 jobs:
   vars-context-test:
-  runs-on: ubuntu-latest
-  steps:
-    - name: "Say Hello VAR_TEST"
-      run: echo "Hello ${{ vars.VARS_TEST}}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Say Hello VAR_TEST"
+        run: echo "Hello ${{ vars.VARS_TEST}}"
