@@ -7,6 +7,5 @@ jobs:
     steps:
       - name: echo-01
         continue-on-error: true
-        run: echo "test echo-01" |
-             echo "test echo-02" \
-             echo "test echo-03"
+        run: echo -e "test echo-01\n""test echo-02"
+        
