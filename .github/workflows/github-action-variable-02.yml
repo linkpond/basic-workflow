@@ -1,13 +1,15 @@
 name: Context testing
-run-name: Run var test
-on: push
+run-name: Run inputs test
+on:
+  workflow_dispatch:
+    inputs:
+      your_name:
+        required: true
+        type: string
 
 jobs:
-  display-variables:  
+  inputs_variable:
     runs-on: ubuntu-latest
     steps:
-    - name: ${{ vars.HELLO_WORLD_STEP }}
-      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
-      uses: actions/hello-world-javascript-action@main
-      with:
-        who-to-greet: ${{ vars.GREET_NAME }}
+      - name: "Check Inputs Variable"
+        run: echo "Hello, ${{ inputs.your_name }}"
