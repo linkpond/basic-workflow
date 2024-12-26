@@ -9,4 +9,4 @@ jobs:
         continue-on-error: true
         run: echo "test echo-01" |
              echo "test echo-02" \
-             echo "test echo-03
+             echo "test echo-03"
