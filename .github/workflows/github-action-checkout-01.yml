@@ -8,5 +8,5 @@ jobs:
       - run: ls -al
       - uses: actions/checkout@v4
         with:
-          path: checkout-dir
-      - run: ls -al checkout-dir
+          path: default-dir
+      - run: ls -al default-dir
