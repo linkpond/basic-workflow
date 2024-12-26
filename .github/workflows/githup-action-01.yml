@@ -1,13 +1,10 @@
-### .github/workflows/github-actions-01.yml
-
-name: Test GitHub Actions-01
-run-name: Run GitHub Actions-01 🚀
-on: workflow_dispatch
-
+name: Steps workflow
+on: push
 jobs:
-  Test-GitHub-Actions:
+  notify:
     runs-on: ubuntu-latest
     steps:
-      - name: echo-01
-        run: |
-          echo "test echo-01"
+      - id: random
+        run: exit $(($RANDOM % 2 == 0))
+      - if: always()
+        run: echo ${{ steps.random.outcome }}
