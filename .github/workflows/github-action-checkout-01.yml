@@ -1,5 +1,5 @@
 name: Checkout Workflow
-run-name: Checkout Workflow v2
+run-name: Checkout Workflow v3
 on: push
 jobs:
   checkout:
@@ -7,7 +7,6 @@ jobs:
     steps:
       - run: ls -al
       - uses: actions/checkout@v4
-      - run: ls -al
-      - run: ls -al .github
-      - run: ls -al .github/workflows
-      - run: cat .github/workflows/github-action-checkout-01.yml
+        with:
+          path: checkout-dir
+      - run: ls -al checkout-dir
