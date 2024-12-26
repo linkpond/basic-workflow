@@ -8,7 +8,7 @@ on:
 
 jobs:
   inputs_variable:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Check Inputs Variable"
-	      run: echo "Hello, ${{ inputs.your_name }}"
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Check Inputs Variable"
+          run: echo "Hello, ${{ inputs.your_name }}"
